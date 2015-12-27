@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'my_portfolio' => 'users#my_portfolio'
   get 'search_stocks' => 'stocks#search'
-
+  resources :user_stocks, except: [:show, :edit, :update, :index]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
