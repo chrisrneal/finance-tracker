@@ -1,0 +1,6 @@
+<%= render 'friends/lookup' %>
+<% if @friendships.size > 0 %>
+    <%= render 'friends/list' %>
+<% else %>
+<h1>You have no friends.  Search and add some above!</h1>
+<% end %>

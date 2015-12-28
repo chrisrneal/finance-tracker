@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   get 'my_portfolio' => 'users#my_portfolio'
   get 'search_stocks' => 'stocks#search'
   get 'my_friends' => 'users#my_friends'
+  get 'search_friends' => 'users#search'
+  post 'add_friend' => 'users#add_friend'
   
   resources :user_stocks, except: [:show, :edit, :update, :index]
+  resources :friendships, except: [:show, :edit, :update, :index]
+  resources :users, only: [:show]
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

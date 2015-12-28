@@ -1,0 +1,31 @@
+<h4>My Friends</h4>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Friends</th>
+        <% # if @user.id == current_user.id %>
+            <th>Actions</th>
+        <% # end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @friendships.each do |friend| %>
+          <tr>
+              <td><%= friend.full_name %></td>
+              <td><%= friend.email %></td>
+              <td><%= friend.friendships.size %></td>
+              <% # if @user.id == current_user.id %>
+                  <td>
+                      <%= link_to "View Profile", user_path(friend), 
+                      class: "btn btn-xs btn-primary"%>
+                      <%= link_to "Remove Friend", friendship_path(friend), 
+                      :method => :delete, class: "btn btn-xs btn-danger",
+                      :data => {confirm: "Are you sure?"} %>
+                  </td>
+              <% # end %>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
