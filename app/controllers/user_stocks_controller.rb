@@ -26,7 +26,7 @@ class UserStocksController < ApplicationController
   def create
     
     if params[:stock_id].present?
-      #@user_stock = UserStock.new(stock_id: params[:stock_id], user: current_user)
+      @user_stock = UserStock.new(stock_id: params[:stock_id], user: current_user)
     else
       stock = Stock.find_by_ticker(params[:stock_ticker])
       if stock
